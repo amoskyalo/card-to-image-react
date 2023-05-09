@@ -1,10 +1,11 @@
 import React from "react";
 
-const Form = () => {
+const Form = ({ handleImageChange, name, setName, category, setCategory }) => {
   return (
-    <form >
-      <div className="shadow sm:overflow-hidden sm:rounded-md">
+    <form className="h-[100%] w-[90%] mx-auto md:mx-0 md:w-[40%]">
+      <div className="shadow  sm:overflow-hidden sm:rounded-md">
         <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
+          <p>Fill in the form below to generate your poster</p>
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Contestant Image
@@ -25,18 +26,19 @@ const Form = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <div className="text-sm text-gray-600" >
+                <div className="text-sm text-gray-600">
                   <label
                     for="file-upload"
                     className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                   >
-                    <span className="text-[#3B841F]">Add your image</span>
+                    <span className="text-black">Add your image</span>
                     <input
                       id="file-upload"
                       name="file-upload"
                       accept="image/*"
                       type="file"
                       className="sr-only"
+                      onChange={handleImageChange}
                     />
                   </label>
                 </div>
@@ -49,40 +51,40 @@ const Form = () => {
 
           <div>
             <label className="block text-sm font-medium te/xt-gray-700">
-              Price per kg in KES
+              Contestant Name
             </label>
             <div className="mt-1">
               <input
-                type={"number"}
-                className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                placeholder="2000"
+                type={"text"}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className=" border border-gray-300   text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 "
+                placeholder="John Doe"
               />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium te/xt-gray-700">
-              Where are you located?
+              Which category are you competing in?
             </label>
             <div className="mt-1">
               <select
-                className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 "
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="">Select</option>
+                <option value="arts">Arts</option>
+                <option value="sports">Sports</option>
+                <option value="music">Music</option>
+                <option value="comedy">Comedy</option>
+                <option value="fashion">Fashion</option>
+                <option value="tech">Tech</option>
+                <option value="food">Food</option>
               </select>
             </div>
           </div>
-        </div>
-
-        <div className="bg-gray-50 flex justify-center px-4 py-3 text-right sm:px-6">
-          <button
-            type="submit"
-            className=" text-center rounded-md border border-transparent  bg-[#3B841F] py-2 px-6  font-bold text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
-            Add Animal Feeds to Livestock Farmers
-          </button>
         </div>
       </div>
     </form>

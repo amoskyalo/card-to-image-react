@@ -15,7 +15,7 @@ function MyComponent({ category, image, name, code }) {
 
   return (
     <>
-      <div className="w-[32%] bold pt-2 bg-black    ">
+      <div className="md:w-[32%] w-[99%] mx-auto md:mx-0 bold pt-2 bg-black    ">
         <div
           style={{
             backgroundImage: `url(${bluebg})`,
@@ -26,15 +26,15 @@ function MyComponent({ category, image, name, code }) {
           ref={componentRef}
         >
           <div className=" flex flex-col justify-center text-white items-center">
-            <h1 className="text-3xl my-1 font-bold cinzel">
+            <h1 className="md:text-3xl text-xl my-1 font-bold cinzel">
               MY AWARDS SHOW KENYA 2023
             </h1>
-            <p className="text-[#F5C877] my-1 font-bold text-2xl">
-              MEME LORD OF THE YEAR
+            <p className="text-[#F5C877] uppercase my-1 font-bold text-xl md:text-5xl">
+              {category}
             </p>
             <div className="flex justify-between p-4 gap-4 items-center">
               <img
-                src={pic}
+                src={image}
                 alt="img"
                 className="w-[200px] h-[200px] rounded-3xl bg-cover h-[250px]"
               />
@@ -43,14 +43,12 @@ function MyComponent({ category, image, name, code }) {
                 <p>2. Select The Voting Category</p>
                 <p>3 .Search MY AWARDS SHOW KENYA 2023</p>
                 <p className="flex items-center gap-2">
-                  4 . Enter My Code{" "}
-                  <span className="text-[#F5C877] font-bold text-xl cinzel">
-                    #23
-                  </span>
+                  4 . Enter My Name{" "}
+                  <span className="text-[#F5C877] font-bold text-xl cinzel"></span>
                 </p>
 
                 <p>5 . Confirm Amount and Votes</p>
-                <p>6 . Confirm Payment</p> 
+                <p>6 . Confirm Payment</p>
               </div>
             </div>
             <p className="text-2xl my-1  gap-2 font-semibold flex  items-center">
@@ -59,15 +57,10 @@ function MyComponent({ category, image, name, code }) {
                 <GiCheckMark className="rotate-12 text-4xl" />
               </span>
             </p>
-            <p className="text-[#F5C877] font-bold cinzel my-1 text-5xl">
-              Arap memes
+            <p className="text-[#F5C877] font-bold cinzel my-1 text-2xl md:text-5xl">
+              {name}
             </p>
-            <p className="flex items-center text-2xl gap-2">
-              Contestant Code{" "}
-              <span className="text-[#F5C877] font-bold  my-1 text-5xl cinzel">
-                #23
-              </span>
-            </p>
+
             <div className="flex  items-center gap-2">
               <GrStar className="text-[#F5C877] text-2xl" />
               <p className="h-[1px] w-[100px] bg-white"></p>
@@ -85,14 +78,20 @@ function MyComponent({ category, image, name, code }) {
             </p>
           </div>
         </div>
-        <div className="flex justify-center items-center">
-          <button
-            className="bg-[#F5C877] my-2 text-black text-2xl font-bold p-2 rounded-2xl"
-            onClick={() => exportComponentAsPNG(componentRef)}
-          >
-            Download Poster
-          </button>
-        </div>
+        {name && category && image && (
+          <div className="flex justify-center items-center">
+            <button
+              className="bg-[#F5C877] my-2 text-black text-2xl font-bold p-2 rounded-2xl"
+              onClick={() =>
+                exportComponentAsPNG(componentRef, {
+                  fileName: `${name} Poster.png`,
+                })
+              }
+            >
+              Download Poster
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
