@@ -1,5 +1,6 @@
 import React from "react";
 import MyComponent from "./MyComponent";
+import Form from "./Form";
 
 const App = () => {
   const posters = [
@@ -22,7 +23,8 @@ const App = () => {
           />
         ))}
       </div>
-      
+
+      <Form />
     </>
   );
 };
