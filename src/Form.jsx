@@ -2,10 +2,10 @@ import React from "react";
 
 const Form = ({ handleImageChange, name, setName, category, setCategory }) => {
   return (
-    <form  className="h-[100%] w-[99%] mx-auto md:mx-0 md:w-[40%]">
+    <form className="h-[100%] w-[99%] mx-auto md:mx-0 md:w-[40%]">
       <div className="shadow  sm:overflow-hidden sm:rounded-md">
         <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-          <p >Fill in the form below to generate your poster</p>
+          <p>Fill in the form below to generate your poster</p>
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Contestant Image
@@ -51,21 +51,6 @@ const Form = ({ handleImageChange, name, setName, category, setCategory }) => {
 
           <div>
             <label className="block text-sm font-medium te/xt-gray-700">
-              Contestant Name
-            </label>
-            <div className="mt-1">
-              <input
-                type={"text"}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className=" border border-gray-300   text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 "
-                placeholder="John Doe"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium te/xt-gray-700">
               Which category are you competing in?
             </label>
             <div className="mt-1">
@@ -83,6 +68,21 @@ const Form = ({ handleImageChange, name, setName, category, setCategory }) => {
                 <option value="tech">Tech</option>
                 <option value="food">Food</option>
               </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium te/xt-gray-700">
+              Contestant Name
+            </label>
+            <div className="mt-1">
+              <input
+                type={"text"}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className=" border border-gray-300   text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 "
+                placeholder="John Doe"
+              />
             </div>
           </div>
         </div>

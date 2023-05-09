@@ -9,6 +9,10 @@ import { GrStar } from "react-icons/gr";
 import { GiCheckMark } from "react-icons/gi";
 import initialimage from "./assets/initialimage.png";
 
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 function MyComponent({
   category,
   image,
@@ -18,10 +22,21 @@ function MyComponent({
   setImage,
 }) {
   const [componentRef, setComponentRef] = useState(createRef());
+  const notify = () =>
+    toast.success("Image Downloaded Successfully", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   return (
     <>
-      <div className="md:w-[32%] w-[99%] mx-auto md:mx-0 bold pt-2 bg-black    ">
+      <div className="md:w-[40%] w-[99%] mx-auto md:mx-0 bold pt-2 bg-black    ">
         <div
           style={{
             backgroundImage: `url(${bluebg})`,
@@ -32,7 +47,7 @@ function MyComponent({
           ref={componentRef}
         >
           <div className=" flex flex-col justify-center text-white items-center">
-            <h1 className="md:text-3xl text-xl my-1 font-bold cinzel">
+            <h1 className="md:text-2xl text-center text-xl my-1 font-bold cinzel">
               MY AWARDS SHOW KENYA 2023
             </h1>
             <p className="text-[#F5C877] text-center uppercase my-1 font-bold text-xl md:text-5xl">
@@ -64,7 +79,7 @@ function MyComponent({
               </span>
             </p>
             <p className="text-[#F5C877] text-center font-bold cinzel my-1 text-2xl md:text-5xl">
-              {name ? name : "Contestant Name"}
+              {name ? name : " Name"}
             </p>
 
             <div className="flex  items-center gap-2">
@@ -95,6 +110,7 @@ function MyComponent({
                     fileName: `${name} Poster.png`,
                   });
                 }, 1000);
+                notify();
                 setTimeout(() => {
                   setCategory("");
                   setName("");
@@ -106,6 +122,7 @@ function MyComponent({
             </button>
           </div>
         )}
+        <ToastContainer />
       </div>
     </>
   );
