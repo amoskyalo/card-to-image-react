@@ -5,6 +5,7 @@ import logo1 from "./assets/logo1.png";
 import logo2 from "./assets/logo2.png";
 import logo3 from "./assets/logo3.png";
 import bluebg from "./assets/bluebg.jpeg";
+import { GrStar } from "react-icons/gr";
 const App = () => {
   const posters = [
     {
@@ -36,44 +37,73 @@ const App = () => {
           />
         ))}
       </div>
+      <div className="w-[32%] bold pt-2 bg-black    ">
+        <div
+          style={{
+            backgroundImage: `url(${bluebg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className=" flex flex-col justify-center text-white items-center">
+            <h1 className="text-3xl my-1 font-bold cinzel">
+              MY AWARDS SHOW KENYA 2023
+            </h1>
+            <p className="text-[#F5C877] my-1 font-bold text-2xl">
+              MEME LORD OF THE YEAR
+            </p>
+            <div className="flex justify-between p-4 gap-4 items-center">
+              <img
+                src={pic}
+                alt="img"
+                className="w-[200px] h-[200px] rounded-3xl bg-cover h-[250px]"
+              />
+              <div className="flex flex-col gap-1">
+                <p>1 . Dial * 544 * 32 #</p>
+                <p>2. Select The Voting Category</p>
+                <p>3 .Search MY AWARDS SHOW KENYA 2023</p>
+                <p className="flex items-center gap-2">
+                  4 . Enter My Code{" "}
+                  <span className="text-[#F5C877] font-bold text-xl cinzel">#23</span>
+                </p>
 
-      <div
-        className="w-[32%] "
-        style={{
-          backgroundImage: `url(${bluebg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <h1>MY AWARDS SHOW KENYA 2023</h1>
-        <p>MEME LORD OF THE YEAR</p>
-        <div className="flex justify-between items-center">
-          <img
-            src={pic}
-            alt="img"
-            className="w-[250px] h-[250px] rounded-lg bg-cover h-[250px]"
-          />
-          <div className="flex flex-col gap-1">
-            <p>1 . Dial * 544 * 32 #</p>
-            <p>2. Select The Voting Category</p>
-            <p>3 .Search MY AWARDS SHOW KENYA 2023</p>
-            <p>4 . Enter My Code ("23")</p>
-
-            <p>5 . Confirm Amount and Votes</p>
-            <p>6 . Confirm Payment</p>
+                <p>5 . Confirm Amount and Votes</p>
+                <p>6 . Confirm Payment</p>
+              </div>
+            </div>
+            <p className="text-2xl font-semibold">Vote for me</p>
+            <p className="text-[#F5C877] font-bold cinzel my-1 text-5xl">
+              Arap memes
+            </p>
+            <p className="flex items-center text-2xl gap-2">
+              Contestant Code{" "}
+              <span className="text-[#F5C877] font-bold  my-1 text-5xl cinzel">
+                #23
+              </span>
+            </p>
+            <div className="flex  items-center gap-2">
+              <GrStar className="text-[#F5C877] text-2xl" />
+              <p className="h-[1px] w-[100px] bg-white"></p>
+              <GrStar className="text-[#F5C877] text-2xl" />
+              <p className="h-[1px] w-[100px] bg-white"></p>
+              <GrStar className="text-[#F5C877] text-2xl" />
+            </div>
+            <div className="bg-white w-[100%] flex p-2 justify-around items-center">
+              <img src={logo1} alt="img" className="w-[50px] h-[50px]" />
+              <img src={logo2} alt="img" className="w-[50px] h-[50px]" />
+              <img src={logo3} alt="img" className="w-[50px] h-[30px]" />
+            </div>
+            <p className="bg-black text-[#F5C877] text-center p-2  w-[100%]  ">
+              Powered by MY AWARDS SHOW KENYA 2023
+            </p>
           </div>
         </div>
-        <p>Vote for me</p>
-        <p>Arapmemes</p>
-        <p>Contestant Code #445</p>
-        <p className="w-[200px] h-[2px] bg-red-500" />
-        <div className="bg-white p-4 flex justify-around items-center">
-          <img src={logo1} alt="img" className="w-[50px] h-[50px]" />
-          <img src={logo2} alt="img" className="w-[50px] h-[50px]" />
-          <img src={logo3} alt="img" className="w-[50px] h-[30px]" />
+        <div className="flex justify-center items-center">
+          <button className="bg-[#F5C877] my-2 text-black text-2xl font-bold p-2 rounded-2xl">
+            Download Poster
+          </button>
         </div>
-        <p className="bg-red-500 w-[100%]  ">gbhjknlm</p>
       </div>
     </>
   );

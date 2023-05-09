@@ -29,12 +29,6 @@ function MyComponent({ title, description, img }) {
         </div>
         <div>
           <div className="flex flex-col">
-            <button onClick={() => exportComponentAsJPEG(componentRef)}>
-              Export As JPEG
-            </button>
-            <button onClick={() => exportComponentAsPDF(componentRef)}>
-              Export As PDF
-            </button>
             <button
               onClick={() =>
                 exportComponentAsPNG(componentRef, {
