@@ -25,7 +25,7 @@ function MyComponent({
   const notify = () =>
     toast.success("Image Downloaded Successfully", {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -100,7 +100,7 @@ function MyComponent({
           </div>
         </div>
         {name && category && image && (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center trasition duration-500 ease-in-out transform  hover:scale-105">
             <button
               className="bg-[#F5C877] my-2 text-black text-2xl font-bold p-2 rounded-2xl"
               onClick={() => {
