@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = ({ handleImageChange, name, setName, category, setCategory }) => {
   return (
-    <form  className="h-[100%] w-[95%] mx-auto md:mx-0 md:w-[40%]">
+    <form  className="h-[100%] w-[99%] mx-auto md:mx-0 md:w-[40%]">
       <div className="shadow  sm:overflow-hidden sm:rounded-md">
         <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
           <p >Fill in the form below to generate your poster</p>
