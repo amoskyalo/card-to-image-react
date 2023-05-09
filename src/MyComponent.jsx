@@ -1,16 +1,22 @@
 import "./App.css";
-
 import { exportComponentAsPNG } from "react-component-export-image";
 import React, { useState, createRef } from "react";
-import pic from "./assets/pic.jpg";
 import logo1 from "./assets/logo1.png";
 import logo2 from "./assets/logo2.png";
 import logo3 from "./assets/logo3.png";
 import bluebg from "./assets/bluebg.jpeg";
 import { GrStar } from "react-icons/gr";
 import { GiCheckMark } from "react-icons/gi";
+import initialimage from "./assets/initialimage.png";
 
-function MyComponent({ category, image, name, code }) {
+function MyComponent({
+  category,
+  image,
+  name,
+  setCategory,
+  setName,
+  setImage,
+}) {
   const [componentRef, setComponentRef] = useState(createRef());
 
   return (
@@ -29,8 +35,8 @@ function MyComponent({ category, image, name, code }) {
             <h1 className="md:text-3xl text-xl my-1 font-bold cinzel">
               MY AWARDS SHOW KENYA 2023
             </h1>
-            <p className="text-[#F5C877] uppercase my-1 font-bold text-xl md:text-5xl">
-              {category}
+            <p className="text-[#F5C877] text-center uppercase my-1 font-bold text-xl md:text-5xl">
+              {category ? category : "Category"}
             </p>
             <div className="flex justify-between p-4 gap-4 items-center">
               <img
@@ -57,8 +63,8 @@ function MyComponent({ category, image, name, code }) {
                 <GiCheckMark className="rotate-12 text-4xl" />
               </span>
             </p>
-            <p className="text-[#F5C877] font-bold cinzel my-1 text-2xl md:text-5xl">
-              {name}
+            <p className="text-[#F5C877] text-center font-bold cinzel my-1 text-2xl md:text-5xl">
+              {name ? name : "Contestant Name"}
             </p>
 
             <div className="flex  items-center gap-2">
@@ -82,11 +88,19 @@ function MyComponent({ category, image, name, code }) {
           <div className="flex justify-center items-center">
             <button
               className="bg-[#F5C877] my-2 text-black text-2xl font-bold p-2 rounded-2xl"
-              onClick={() =>
-                exportComponentAsPNG(componentRef, {
-                  fileName: `${name} Poster.png`,
-                })
-              }
+              onClick={() => {
+                window.scrollTo(0, 0);
+                setTimeout(() => {
+                  exportComponentAsPNG(componentRef, {
+                    fileName: `${name} Poster.png`,
+                  });
+                }, 1000);
+                setTimeout(() => {
+                  setCategory("");
+                  setName("");
+                  setImage(initialimage);
+                }, 2000);
+              }}
             >
               Download Poster
             </button>
