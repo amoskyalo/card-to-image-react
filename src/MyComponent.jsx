@@ -34,6 +34,15 @@ function MyComponent({
       theme: "dark",
     });
 
+  const procedures = [
+    "Dial * 544 * 32 #",
+    "Select The Voting Category",
+    "Search MY AWARDS SHOW KENYA 2023",
+    "Enter My Name",
+    "Confirm Amount and Votes",
+    "Confirm Payment",
+  ];
+
   return (
     <>
       <div className="md:w-[40%] w-[99%] mx-auto md:mx-0 bold pt-2 bg-black    ">
@@ -57,19 +66,14 @@ function MyComponent({
               <img
                 src={image}
                 alt="img"
-                className="w-[200px] h-[200px] rounded-3xl bg-cover h-[250px]"
+                className="w-[200px] rounded-3xl object-cover h-[250px]"
               />
               <div className="flex flex-col gap-1">
-                <p>1 . Dial * 544 * 32 #</p>
-                <p>2. Select The Voting Category</p>
-                <p>3 .Search MY AWARDS SHOW KENYA 2023</p>
-                <p className="flex items-center gap-2">
-                  4 . Enter My Name{" "}
-                  <span className="text-[#F5C877] font-bold text-xl cinzel"></span>
-                </p>
-
-                <p>5 . Confirm Amount and Votes</p>
-                <p>6 . Confirm Payment</p>
+                {procedures.map((procedure, i) => (
+                  <p key={i}>
+                    {i + 1}. {procedure}
+                  </p>
+                ))}
               </div>
             </div>
             <p className="text-2xl my-1  gap-2 font-semibold flex  items-center">
@@ -79,20 +83,30 @@ function MyComponent({
               </span>
             </p>
             <p className="text-[#F5C877] text-center font-bold cinzel my-1 text-2xl md:text-5xl">
-              {name ? name : " Name"}
+              {name ? name : "Name"}
             </p>
 
             <div className="flex  items-center gap-2">
-              <GrStar className="text-[#F5C877] text-2xl" />
-              <p className="h-[1px] w-[100px] bg-white"></p>
-              <GrStar className="text-[#F5C877] text-2xl" />
-              <p className="h-[1px] w-[100px] bg-white"></p>
-              <GrStar className="text-[#F5C877] text-2xl" />
+              {Array(3)
+                .fill(0)
+                .map((item, index) => (
+                  <div className="flex items-center" key={index}>
+                    <GrStar className="text-[#F5C877] text-2xl" />
+                    {index !== 2 && (
+                      <p className="h-[1px] w-[100px] bg-white"></p>
+                    )}
+                  </div>
+                ))}
             </div>
             <div className="bg-white w-[100%] flex p-2 justify-around items-center">
-              <img src={logo1} alt="img" className="w-[50px] h-[50px]" />
-              <img src={logo2} alt="img" className="w-[50px] h-[50px]" />
-              <img src={logo3} alt="img" className="w-[50px] h-[30px]" />
+              {[logo1, logo2, logo3].map((image, i) => (
+                <img
+                  src={image}
+                  key={i}
+                  alt="img"
+                  className="w-[50px] h-[50px] object-contain"
+                />
+              ))}
             </div>
             <p className="bg-black text-[#F5C877] text-center p-2  w-[100%]  ">
               Powered by MY AWARDS SHOW KENYA 2023
